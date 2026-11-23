@@ -1,0 +1,85 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Welcome {{ student.name }}</h1>
+
+<div class="card">
+    <h2>My Profile</h2>
+
+    <p>Name: {{ student.name }}</p>
+    <p>Email: {{ student.email }}</p>
+    <p>Course: {{ student.course }}</p>
+    <p>Phone: {{ student.phone }}</p>
+    <p>Skills: {{ student.skills }}</p>
+
+    <a href="{{ url_for('profile') }}">Edit Profile</a>
+</div>
+
+<h2>Available Jobs</h2>
+
+<div class="features">
+
+{% for job in jobs %}
+
+    <div class="card">
+
+        <h3>{{ job.title }}</h3>
+
+        <p>Company: {{ job.company }}</p>
+        <p>Location: {{ job.location }}</p>
+        <p>{{ job.description }}</p>
+
+        {% if job.application_id %}
+
+            <h4>Status: {{ job.status }}</h4>
+
+        {% else %}
+
+            <form method="POST"
+                  action="{{ url_for('apply', job_id=job.id) }}">
+
+                <button type="submit">Apply Now</button>
+
+            </form>
+
+        {% endif %}
+
+    </div>
+
+{% else %}
+
+    <p>No jobs available.</p>
+
+{% endfor %}
+
+</div>
+
+<h2>My Applications</h2>
+
+<table>
+    <tr>
+        <th>Job</th>
+        <th>Company</th>
+        <th>Status</th>
+    </tr>
+
+    {% for application in applications %}
+
+    <tr>
+        <td>{{ application.title }}</td>
+        <td>{{ application.company }}</td>
+        <td>{{ application.status }}</td>
+    </tr>
+
+    {% else %}
+
+    <tr>
+        <td colspan="3">No applications yet.</td>
+    </tr>
+
+    {% endfor %}
+</table>
+
+{% endblock %}

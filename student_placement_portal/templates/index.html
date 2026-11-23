@@ -1,0 +1,176 @@
+
+{% extends "base.html" %}
+
+{% block title %}Home | Student Placement Portal{% endblock %}
+
+{% block content %}
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-label">
+            ✨ YOUR CAREER STARTS HERE
+        </div>
+
+        <h1>
+            Launch Your Career
+            <span>With Confidence.</span>
+        </h1>
+
+        <p>
+            Discover exciting job opportunities, connect with top companies
+            and take the first step towards your dream career.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="{{ url_for('register') }}" class="primary-btn">
+                Register Now →
+            </a>
+
+            <a href="{{ url_for('login') }}" class="secondary-btn">
+                Student Login
+            </a>
+
+        </div>
+
+        <div class="hero-note">
+            ✓ Easy Registration &nbsp;&nbsp;
+            ✓ Explore Jobs &nbsp;&nbsp;
+            ✓ Track Applications
+        </div>
+
+    </div>
+
+    <div class="hero-visual">
+
+        <div class="visual-circle">
+            <div class="visual-icon">🎓</div>
+        </div>
+
+        <div class="floating-card card-one">
+            <span>💼</span>
+            <div>
+                <strong>Career Opportunities</strong>
+                <small>Find your dream job</small>
+            </div>
+        </div>
+
+        <div class="floating-card card-two">
+            <span>🚀</span>
+            <div>
+                <strong>Start Your Journey</strong>
+                <small>Your future begins today</small>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="stats-section">
+
+    <div class="stat-card">
+        <div class="stat-icon">💼</div>
+        <h2>{{ total_jobs|default(3) }}</h2>
+        <p>Total Job Openings</p>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-icon">🎯</div>
+        <h2>Easy</h2>
+        <p>Job Applications</p>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-icon">📈</div>
+        <h2>Track</h2>
+        <p>Application Status</p>
+    </div>
+
+</section>
+
+
+<section class="features-section" id="features">
+
+    <div class="section-heading">
+
+        <span>WHAT WE OFFER</span>
+
+        <h2>Everything You Need to Get Placed</h2>
+
+        <p>
+            Simple tools to help students move towards a successful career.
+        </p>
+
+    </div>
+
+    <div class="features-grid">
+
+        <div class="feature-card">
+
+            <div class="feature-icon purple">👨‍🎓</div>
+
+            <h3>Student Registration</h3>
+
+            <p>
+                Create your account and build your student profile
+                to get started.
+            </p>
+
+            <a href="{{ url_for('register') }}">Register Now →</a>
+
+        </div>
+
+        <div class="feature-card">
+
+            <div class="feature-icon blue">💼</div>
+
+            <h3>Job Opportunities</h3>
+
+            <p>
+                Explore available job openings and apply for
+                opportunities that match your skills.
+            </p>
+
+            <a href="{{ url_for('login') }}">Explore Jobs →</a>
+
+        </div>
+
+        <div class="feature-card">
+
+            <div class="feature-icon green">📊</div>
+
+            <h3>Application Tracking</h3>
+
+            <p>
+                View your submitted applications and check
+                their current status.
+            </p>
+
+            <a href="{{ url_for('login') }}">Track Application →</a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="cta-section">
+
+    <h2>Ready to Build Your Future?</h2>
+
+    <p>
+        Join the Student Placement Portal and discover your next opportunity.
+    </p>
+
+    <a href="{{ url_for('register') }}" class="cta-button">
+        Create Your Account →
+    </a>
+
+</section>
+
+{% endblock %}

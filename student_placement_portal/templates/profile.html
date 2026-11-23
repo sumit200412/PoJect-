@@ -1,0 +1,37 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="form-box">
+
+    <h1>My Profile</h1>
+
+    <form method="POST" enctype="multipart/form-data">
+
+        <label>Name</label>
+        <input name="name" value="{{ student.name }}" required>
+
+        <label>Email</label>
+        <input value="{{ student.email }}" disabled>
+
+        <label>Course</label>
+        <input name="course" value="{{ student.course }}">
+
+        <label>Phone</label>
+        <input name="phone" value="{{ student.phone }}">
+
+        <label>Skills</label>
+        <textarea name="skills">{{ student.skills }}</textarea>
+
+        <label>Upload Resume</label>
+        <input type="file" name="resume"
+               accept=".pdf,.doc,.docx">
+
+        <button type="submit">Save Profile</button>
+
+    </form>
+
+</div>
+
+{% endblock %}
